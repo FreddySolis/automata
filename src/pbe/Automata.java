@@ -101,29 +101,40 @@ public class Automata extends javax.swing.JFrame {
 
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        startChecking();
+        /*String xd =  this.jTextArea1.getText();
+        System.out.println(xd.split("\n").length);
+        for (String string : xd.split("\n")) {
+            System.out.println(string);
+        }*/
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public void startChecking(){
         this.jTextArea2.setText("");
         this.originalString = this.jTextArea1.getText();
         this.hasError = false;
         String firstPart[];
         String second[];
         firstPart = this.originalString.split("\\{");
-        second = firstPart[0].split(" ");
-        
+        second = firstPart[0].split("\\(");
+        //System.out.println(second.length);
         if(second.length == 2){
-         hasError = q0(second);
-         
+            hasError = q0(second[0]);
+            if(hasError==true){
+                hasError=q4(second[1]);
+            }
         }else{ 
             this.jTextArea2.append("Error al leer q1");
         }
-                
-                
-    }//GEN-LAST:event_jButton1ActionPerformed
+         
     
-    public boolean q0(String x[]){
-        if(x[0].equals("void")){
-        
+    }
+    public boolean q0(String x){
+        String method[] = x.split(" ");
+        if(method[0].equals("void")){
+            
             return q1(x);
-        }else if(isDataType(x[0])){
+        }else if(isDataType(method[0])){
              return q14(x);
         }else{
         jTextArea2.append("Error al leer q0");
@@ -134,12 +145,15 @@ public class Automata extends javax.swing.JFrame {
         
     }
     
-    public boolean q1(String x[]){
-        String third[] = x[1].split("\\(");
+    public boolean q1(String x){
+        String third[] = x.split(" ");
+        //for (String string : third) {
+          //  System.out.println(string);
+        //}
         if(third.length == 2){
-            if(!isDataType(third[0])){
+            if(!isDataType(third[1])){
                  
-                   return q4(third);
+                   return true;
             }else{
                 jTextArea2.append("Error al leer q2");
                 return false;
@@ -152,36 +166,49 @@ public class Automata extends javax.swing.JFrame {
         
     }
     
-    public boolean q4(String x[]){
-        String tem[] = x[2].split(" ");
-        
-        if(tem.length>1 || x[2].equals("\\)") ){
-            if(x[2].equals("\\)")){
-                return true;
-            }else if(isDataType(tem[0])){
-                   
-                   
-                
-            }else{
-                jTextArea2.append("Error al leer q4");
-                return false;
-            }
+    public boolean q4(String x){
+        String parameters[] = x.split("\\)");
+        System.out.println(parameters.length);
+   
+        if(parameters.length>0){
+            return checkParameter(parameters[0]);
         }else{
-            jTextArea2.append("Error al leer q5");
-            return false;
+        
+            
         }
+        
+       return false;
     }
     
     public boolean q6(String x[]){
     
         return false;
     }
-    public boolean q14(String x[]){
+    public boolean q14(String x){
     
         return false;
     }
     
+    public boolean checkParameter(String x){
+        String parameters[] = x.split(",");
     
+        for (String parameter : parameters) {
+            String temp[] = parameter.split(" ");
+            
+            if(isDataType(temp[0])){
+                if(!isDataType(temp[1])){
+                    System.out.println("Jala");
+                }else{
+                    jTextArea2.append("Error al leer qn");
+                    return false;
+                }
+            }else{
+                jTextArea2.append("Error al leer qn");
+                return false;
+            }
+        }
+        return true;
+    }
     public boolean isDataType(String x){
         if(x.equals("int") || x.equals("String") || x.equals("boolean") || x.equals("char") || x.equals("float") || x.equals("double") ){
             return true;
