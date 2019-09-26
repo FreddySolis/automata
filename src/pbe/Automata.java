@@ -11,7 +11,8 @@ package pbe;
  */
 public class Automata extends javax.swing.JFrame {
     private String originalString;
-    private boolean hasError=false;
+    private boolean notError=false;
+    private boolean returns = false;
     /**
      * Creates new form Automata
      */
@@ -112,30 +113,45 @@ public class Automata extends javax.swing.JFrame {
     public void startChecking(){
         this.jTextArea2.setText("");
         this.originalString = this.jTextArea1.getText();
-        this.hasError = false;
+        this.notError = false;
         String firstPart[];
         String second[];
         firstPart = this.originalString.split("\\{");
         second = firstPart[0].split("\\(");
-        //System.out.println(second.length);
-        if(second.length == 2){
-            hasError = q0(second[0]);
-            if(hasError==true){
-                hasError=q4(second[1]);
+        boolean symbols[] = checkSymbols(originalString);
+        
+        if(symbols[0] && symbols[1] && symbols[2] && symbols[3]){
+            if(second.length == 2){
+                notError = q0(second[0]);
+                if(notError == true){
+                    notError = q4(second[1]);
+                    String thrid[] = this.originalString.split("\n");
+                    if(thrid.length > 1 && notError){
+                        notError = q9(thrid[1]);
+                        if(notError && !returns ){
+                            this.jTextArea2.append("Metodo declarado correctamente");
+                        }else if(notError && returns){
+                            //Estado bien chingón aquí
+                        }
+                    }
+                }
+            }else{ 
+                this.jTextArea2.append("Error al leer q1");
             }
-        }else{ 
-            this.jTextArea2.append("Error al leer q1");
+        }else{
+            this.jTextArea2.append("Error en simbolos");
+        
         }
-         
     
     }
     public boolean q0(String x){
         String method[] = x.split(" ");
         if(method[0].equals("void")){
-            
+            returns = false;
             return q1(x);
         }else if(isDataType(method[0])){
-             return q14(x);
+            returns = true;
+            return q1(x);
         }else{
         jTextArea2.append("Error al leer q0");
         return false;
@@ -147,19 +163,25 @@ public class Automata extends javax.swing.JFrame {
     
     public boolean q1(String x){
         String third[] = x.split(" ");
-        //for (String string : third) {
-          //  System.out.println(string);
-        //}
         if(third.length == 2){
             if(!isDataType(third[1])){
                  
                    return true;
             }else{
-                jTextArea2.append("Error al leer q2");
+                if(!returns){
+                    jTextArea2.append("Error al leer q15");
+                }else{
+                    jTextArea2.append("Error al leer q2");
+                }
                 return false;
             }
         }else{
-            jTextArea2.append("Error al leer q3");
+            if(returns){
+                jTextArea2.append("Error al leer q16");
+            }else{
+                jTextArea2.append("Error al leer q3");
+            }
+            
             return false;
         }
     
@@ -168,25 +190,37 @@ public class Automata extends javax.swing.JFrame {
     
     public boolean q4(String x){
         String parameters[] = x.split("\\)");
-        System.out.println(parameters.length);
    
-        if(parameters.length>0){
+        if(parameters.length > 0){
             return checkParameter(parameters[0]);
         }else{
-        
             
+            return true;
         }
         
-       return false;
     }
     
-    public boolean q6(String x[]){
-    
-        return false;
-    }
-    public boolean q14(String x){
-    
-        return false;
+    public boolean q9(String x){
+        char dotValidaton[] = x.toCharArray();
+        if(dotValidaton[dotValidaton.length-1] == ';'){
+            if(x.equals("instrucciones;")){
+                return true;
+            }else{
+                if(!returns){
+                    jTextArea2.append("Error al leer q9");
+                }else{
+                    jTextArea2.append("Error al leer q22");
+                }
+                return false;
+            }
+        }else{
+            if(!returns){
+                jTextArea2.append("Error al leer 10");
+            }else{
+                jTextArea2.append("Error al leer q23");
+            }
+            return false;
+        } 
     }
     
     public boolean checkParameter(String x){
@@ -199,11 +233,11 @@ public class Automata extends javax.swing.JFrame {
                 if(!isDataType(temp[1])){
                     System.out.println("Jala");
                 }else{
-                    jTextArea2.append("Error al leer qn");
+                    jTextArea2.append("Error al leer q7");
                     return false;
                 }
             }else{
-                jTextArea2.append("Error al leer qn");
+                jTextArea2.append("Error al leer q4");
                 return false;
             }
         }
@@ -215,6 +249,49 @@ public class Automata extends javax.swing.JFrame {
         }else{
             return false;
         }
+    }
+    
+    public boolean[] checkSymbols(String x){
+        char everything[] = x.toCharArray();
+        boolean[] bo = new boolean[4];
+        int cont = 0;
+        int cont2 = 0;
+        int cont3 = 0;
+        int cont4 = 0;
+        for (char c : everything) {
+            if(c == '{' && cont == 0){
+                bo[0] = true;
+                cont++;
+            }else if(c == '{' && cont != 0){
+                bo[0] = false;
+                cont++;
+            }
+            if(c == '}' && cont2 == 0){
+                bo[1] = true;
+                cont2++;
+            }else if(c == '}' && cont2 != 0){
+                bo[0] = false;
+                cont++;
+            
+            }
+            if(c == '(' && cont3 == 0){
+                bo[2] = true;
+                cont3++;
+            }else if(c == '(' && cont3 != 0){
+                bo[0] = false;
+                cont++;
+            
+            }
+            if(c == ')' && cont4 == 0){
+                bo[3] = true;
+                cont4++;
+            }else if(c == ')' && cont4 != 0){
+                bo[0] = false;
+                cont++;
+            }
+        }
+        
+        return bo;
     }
     /**
      * @param args the command line arguments
