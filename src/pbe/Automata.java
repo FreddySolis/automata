@@ -120,28 +120,28 @@ public class Automata extends javax.swing.JFrame {
         second = firstPart[0].split("\\(");
         boolean symbols[] = checkSymbols(originalString);
         
-        if(symbols[0] && symbols[1] && symbols[2] && symbols[3]){
             if(second.length == 2){
                 notError = q0(second[0]);
                 if(notError == true){
                     notError = q4(second[1]);
+                    if(!symbols[0]){
+                        notError = false;
+                        this.jTextArea2.append("Error al leer q8");
+                    }
                     String thrid[] = this.originalString.split("\n");
                     if(thrid.length > 1 && notError){
                         notError = q9(thrid[1]);
                         if(notError && !returns ){
                             this.jTextArea2.append("Metodo declarado correctamente");
                         }else if(notError && returns){
-                            //Estado bien chingón aquí
+                            //Estado bien op aquí
                         }
                     }
                 }
             }else{ 
                 this.jTextArea2.append("Error al leer q1");
             }
-        }else{
-            this.jTextArea2.append("Error en simbolos");
         
-        }
     
     }
     public boolean q0(String x){
@@ -202,25 +202,32 @@ public class Automata extends javax.swing.JFrame {
     
     public boolean q9(String x){
         char dotValidaton[] = x.toCharArray();
-        if(dotValidaton[dotValidaton.length-1] == ';'){
-            if(x.equals("instrucciones;")){
+        String xd = x.replace(';', ' ');
+        xd = xd.trim();
+        
+        if(xd.equals("instrucciones")){
+            if(dotValidaton[dotValidaton.length-1] == ';'){
                 return true;
             }else{
-                if(!returns){
-                    jTextArea2.append("Error al leer q9");
+                if(returns){
+                    jTextArea2.append("Error al leer q25");
+                
                 }else{
-                    jTextArea2.append("Error al leer q22");
+                    jTextArea2.append("Error al leer q11");
+                
                 }
                 return false;
             }
         }else{
-            if(!returns){
-                jTextArea2.append("Error al leer 10");
+            if(returns){
+                jTextArea2.append("Error al leer q24");
+                return false;
             }else{
-                jTextArea2.append("Error al leer q23");
+                jTextArea2.append("Error al leer q10");
+                return false;
             }
-            return false;
-        } 
+            
+        }
     }
     
     public boolean checkParameter(String x){
@@ -229,15 +236,15 @@ public class Automata extends javax.swing.JFrame {
         for (String parameter : parameters) {
             String temp[] = parameter.split(" ");
             
-            if(isDataType(temp[0])){
-                if(!isDataType(temp[1])){
+            if(isDataType(temp[0].trim())){
+                if(!isDataType(temp[1].trim())){
                     System.out.println("Jala");
                 }else{
                     jTextArea2.append("Error al leer q7");
                     return false;
                 }
             }else{
-                jTextArea2.append("Error al leer q4");
+                //jTextArea2.append("Error al leer q4");
                 return false;
             }
         }
@@ -249,6 +256,47 @@ public class Automata extends javax.swing.JFrame {
         }else{
             return false;
         }
+    }
+    
+    public boolean itReturns(String x[]){
+        if(x.length == 4){
+            String verifyReturn[] = x[2].split(" ");
+            char dotVerify[] = x[2].toCharArray();
+            
+            if(verifyReturn[0].equals("return")){
+                String xd = verifyReturn[2].replace(';', ' ');
+                xd = xd.trim();
+                if(isDataType(xd)){
+                    jTextArea2.append("Error al leer q29");
+                    notError = false;
+                    return true;
+                }else{
+                    if(dotVerify[dotVerify.length-1] == ';'){
+                        return true;
+                    }else{
+                    jTextArea2.append("Error al leer q30");
+                    notError = false;
+                    return false;
+                    }
+                }
+            }else{
+                notError = false;
+                jTextArea2.append("Error al leer q27");
+                return false;
+            }
+        
+        }else if(x.length==3){
+            return false;
+        }else{
+            if(!returns){
+                jTextArea2.append("Error al leer 13");
+            }else{
+                jTextArea2.append("Error al leer q30");
+            }
+            notError = false;
+            return false;
+        }
+        
     }
     
     public boolean[] checkSymbols(String x){
