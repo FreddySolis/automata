@@ -13,11 +13,14 @@ public class Automata extends javax.swing.JFrame {
     private String originalString;
     private boolean notError=false;
     private boolean returns = false;
+    private boolean symbols[];
+    private boolean hasParameters;
     /**
      * Creates new form Automata
      */
     public Automata() {
         initComponents();
+        this.setInvisible();
     }
 
     /**
@@ -29,6 +32,7 @@ public class Automata extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
@@ -36,6 +40,86 @@ public class Automata extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        canvas1 = new java.awt.Canvas();
+        q0Void = new javax.swing.JLabel();
+        q0Return = new javax.swing.JLabel();
+        q1 = new javax.swing.JLabel();
+        q3 = new javax.swing.JLabel();
+        q2 = new javax.swing.JLabel();
+        q4 = new javax.swing.JLabel();
+        q6 = new javax.swing.JLabel();
+        q5 = new javax.swing.JLabel();
+        q7 = new javax.swing.JLabel();
+        q9 = new javax.swing.JLabel();
+        q10 = new javax.swing.JLabel();
+        q11 = new javax.swing.JLabel();
+        q12 = new javax.swing.JLabel();
+        q8 = new javax.swing.JLabel();
+        q14 = new javax.swing.JLabel();
+        q13 = new javax.swing.JLabel();
+        q0q1 = new javax.swing.JLabel();
+        q1q2 = new javax.swing.JLabel();
+        q2q3 = new javax.swing.JLabel();
+        q3q4 = new javax.swing.JLabel();
+        q4q5 = new javax.swing.JLabel();
+        q5q6 = new javax.swing.JLabel();
+        q6q7 = new javax.swing.JLabel();
+        q7q8 = new javax.swing.JLabel();
+        q8q9 = new javax.swing.JLabel();
+        q9q10 = new javax.swing.JLabel();
+        q10q11 = new javax.swing.JLabel();
+        q11q12 = new javax.swing.JLabel();
+        q12q13 = new javax.swing.JLabel();
+        q13q14 = new javax.swing.JLabel();
+        q16 = new javax.swing.JLabel();
+        q15 = new javax.swing.JLabel();
+        q18 = new javax.swing.JLabel();
+        q17 = new javax.swing.JLabel();
+        q19 = new javax.swing.JLabel();
+        q33 = new javax.swing.JLabel();
+        q20 = new javax.swing.JLabel();
+        q21 = new javax.swing.JLabel();
+        q22 = new javax.swing.JLabel();
+        q23 = new javax.swing.JLabel();
+        q24 = new javax.swing.JLabel();
+        q26 = new javax.swing.JLabel();
+        q27 = new javax.swing.JLabel();
+        q28 = new javax.swing.JLabel();
+        q25 = new javax.swing.JLabel();
+        q29 = new javax.swing.JLabel();
+        q30 = new javax.swing.JLabel();
+        q31 = new javax.swing.JLabel();
+        q32 = new javax.swing.JLabel();
+        q0q15 = new javax.swing.JLabel();
+        q15q16 = new javax.swing.JLabel();
+        q16q17 = new javax.swing.JLabel();
+        q17q18 = new javax.swing.JLabel();
+        q18q19 = new javax.swing.JLabel();
+        q19q20 = new javax.swing.JLabel();
+        q20q21 = new javax.swing.JLabel();
+        q21q22 = new javax.swing.JLabel();
+        q22q23 = new javax.swing.JLabel();
+        q23q24 = new javax.swing.JLabel();
+        q24q25 = new javax.swing.JLabel();
+        q25q26 = new javax.swing.JLabel();
+        q26q27 = new javax.swing.JLabel();
+        q27q28 = new javax.swing.JLabel();
+        q28q29 = new javax.swing.JLabel();
+        q29q30 = new javax.swing.JLabel();
+        q30q31 = new javax.swing.JLabel();
+        q32q33 = new javax.swing.JLabel();
+        q31q32 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +143,177 @@ public class Automata extends javax.swing.JFrame {
             }
         });
 
+        q0Void.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q0Void.setText("q0");
+
+        q0Return.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q0Return.setText("q0");
+
+        q1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q1.setText("q1");
+
+        q3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q3.setText("q3");
+
+        q2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q2.setText("q2");
+
+        q4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q4.setText("q4");
+
+        q6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q6.setText("q6");
+
+        q5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q5.setText("q5");
+
+        q7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q7.setText("q7");
+
+        q9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q9.setText("q9");
+
+        q10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q10.setText("q10");
+
+        q11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q11.setText("q11");
+
+        q12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q12.setText("q12");
+
+        q8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q8.setText("q8");
+
+        q14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q14.setText("q14");
+
+        q13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q13.setText("q13");
+
+        q0q1.setText("->");
+
+        q1q2.setText("->");
+
+        q2q3.setText("->");
+
+        q3q4.setText("->");
+
+        q4q5.setText("->");
+
+        q5q6.setText("->");
+
+        q6q7.setText("->");
+
+        q7q8.setText("->");
+
+        q8q9.setText("->");
+
+        q9q10.setText("->");
+
+        q10q11.setText("->");
+
+        q11q12.setText("->");
+
+        q12q13.setText("->");
+
+        q13q14.setText("->");
+
+        q16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q16.setText("q16");
+
+        q15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q15.setText("q15");
+
+        q18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q18.setText("q18");
+
+        q17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q17.setText("q17");
+
+        q19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q19.setText("q19");
+
+        q33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q33.setText("q33");
+
+        q20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q20.setText("q20");
+
+        q21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q21.setText("q21");
+
+        q22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q22.setText("q22");
+
+        q23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q23.setText("q23");
+
+        q24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q24.setText("q24");
+
+        q26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q26.setText("q26");
+
+        q27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q27.setText("q27");
+
+        q28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q28.setText("q28");
+
+        q25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q25.setText("q25");
+
+        q29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q29.setText("q29");
+
+        q30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q30.setText("q30");
+
+        q31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q31.setText("q31");
+
+        q32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/japo/java/resources/images/tick-inside-circle (1).png"))); // NOI18N
+        q32.setText("q32");
+
+        q0q15.setText("->");
+
+        q15q16.setText("->");
+
+        q16q17.setText("->");
+
+        q17q18.setText("->");
+
+        q18q19.setText("->");
+
+        q19q20.setText("->");
+
+        q20q21.setText("->");
+
+        q21q22.setText("->");
+
+        q22q23.setText("->");
+
+        q23q24.setText("->");
+
+        q24q25.setText("->");
+
+        q25q26.setText("->");
+
+        q26q27.setText("->");
+
+        q27q28.setText("->");
+
+        q28q29.setText("->");
+
+        q29q30.setText("->");
+
+        q30q31.setText("->");
+
+        q32q33.setText("->");
+
+        q31q32.setText("->");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,18 +323,163 @@ public class Automata extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q0Void)
+                                .addGap(10, 10, 10)
+                                .addComponent(q0q1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q0Return)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(q0q15)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q1q2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q15q16)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q2q3)
+                                .addGap(11, 11, 11)
+                                .addComponent(q3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q3q4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q4q5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q16q17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q17q18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q18)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q18q19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q19q20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q20q21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q21q22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q22q23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q23q24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q24q25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q25q26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q26q27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q27q28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q28)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q28q29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q29q30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q30q31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q31q32)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q32)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q32q33)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(q33))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(q5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q5q6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q6q7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q7q8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q8q9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q9q10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q10q11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q11q12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q12q13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q13q14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(q14))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +494,84 @@ public class Automata extends javax.swing.JFrame {
                     .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(q0Void)
+                    .addComponent(q1)
+                    .addComponent(q2)
+                    .addComponent(q3)
+                    .addComponent(q4)
+                    .addComponent(q6)
+                    .addComponent(q5)
+                    .addComponent(q7)
+                    .addComponent(q9)
+                    .addComponent(q10)
+                    .addComponent(q11)
+                    .addComponent(q12)
+                    .addComponent(q8)
+                    .addComponent(q14)
+                    .addComponent(q13)
+                    .addComponent(q0q1)
+                    .addComponent(q1q2)
+                    .addComponent(q2q3)
+                    .addComponent(q3q4)
+                    .addComponent(q4q5)
+                    .addComponent(q5q6)
+                    .addComponent(q6q7)
+                    .addComponent(q7q8)
+                    .addComponent(q8q9)
+                    .addComponent(q9q10)
+                    .addComponent(q10q11)
+                    .addComponent(q11q12)
+                    .addComponent(q12q13)
+                    .addComponent(q13q14))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(q0Return)
+                            .addComponent(q15)
+                            .addComponent(q33)
+                            .addComponent(q22)
+                            .addComponent(q23)
+                            .addComponent(q24)
+                            .addComponent(q27)
+                            .addComponent(q0q15)
+                            .addComponent(q15q16)
+                            .addComponent(q16)
+                            .addComponent(q16q17)
+                            .addComponent(q17)
+                            .addComponent(q17q18)
+                            .addComponent(q18)
+                            .addComponent(q18q19)
+                            .addComponent(q19)
+                            .addComponent(q19q20)
+                            .addComponent(q20)
+                            .addComponent(q20q21)
+                            .addComponent(q21)
+                            .addComponent(q21q22)
+                            .addComponent(q22q23)
+                            .addComponent(q23q24)
+                            .addComponent(q24q25)
+                            .addComponent(q25)
+                            .addComponent(q25q26)
+                            .addComponent(q26)
+                            .addComponent(q26q27)
+                            .addComponent(q27q28)
+                            .addComponent(q28)
+                            .addComponent(q28q29)
+                            .addComponent(q29)
+                            .addComponent(q29q30)
+                            .addComponent(q30)
+                            .addComponent(q30q31)
+                            .addComponent(q31)
+                            .addComponent(q32q33)
+                            .addComponent(q32)
+                            .addComponent(q31q32)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,6 +579,7 @@ public class Automata extends javax.swing.JFrame {
 
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        setInvisible();
         startChecking();
         /*String xd =  this.jTextArea1.getText();
         System.out.println(xd.split("\n").length);
@@ -111,6 +589,7 @@ public class Automata extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public void startChecking(){
+        hasParameters = false;
         this.jTextArea2.setText("");
         this.originalString = this.jTextArea1.getText();
         this.notError = false;
@@ -118,30 +597,54 @@ public class Automata extends javax.swing.JFrame {
         String second[];
         firstPart = this.originalString.split("\\{");
         second = firstPart[0].split("\\(");
-        boolean symbols[] = checkSymbols(originalString);
+        this.symbols = checkSymbols(originalString);
         
             if(second.length == 2){
                 notError = q0(second[0]);
                 if(notError == true){
                     notError = q4(second[1]);
-                    if(!symbols[0]){
-                        notError = false;
-                        this.jTextArea2.append("Error al leer q8");
-                    }
                     String thrid[] = this.originalString.split("\n");
                     if(thrid.length > 1 && notError){
                         notError = q9(thrid[1]);
                         if(notError && !returns ){
-                            this.jTextArea2.append("Metodo declarado correctamente");
+                            if(!itReturns(thrid)){
+                                if(symbols[1]){
+                                    this.jTextArea2.append("Metodo declarado correctamente");
+                                    this.setVisibleUntilTo(14);
+                                }else{
+                                    setVisibleUntilTo(13);
+
+                                }
+                            }else{
+                                this.jTextArea2.append("Error al leer q13, un void no retorna datos");
+                                setVisibleUntilTo(13);
+                            }
+                            ;
                         }else if(notError && returns){
-                            //Estado bien op aquí
+                            if(itReturns(thrid)){
+                                if(symbols[1]){
+                                    this.jTextArea2.append("Metodo declarado correctamente");
+                                    setVisibleUntilTo(33);
+                                }else{
+                                    this.jTextArea2.append("Error al leer q32");
+                                    setVisibleUntilTo(32);
+                                }
+                            }else{
+                                this.jTextArea2.append("Error al leer q27");
+                                setVisibleUntilTo(27);
+                            }
                         }
                     }
                 }
-            }else{ 
-                this.jTextArea2.append("Error al leer q1");
+            }else{
+                if(returns){
+                    setVisibleUntilTo(15);
+                    this.jTextArea2.append("Error al leer q15"); 
+                }else{
+                    setVisibleUntilTo(1);
+                    this.jTextArea2.append("Error al leer q1");
+                }
             }
-        
     
     }
     public boolean q0(String x){
@@ -169,17 +672,21 @@ public class Automata extends javax.swing.JFrame {
                    return true;
             }else{
                 if(!returns){
-                    jTextArea2.append("Error al leer q15");
-                }else{
                     jTextArea2.append("Error al leer q2");
+                    setVisibleUntilTo(2);
+                }else{
+                    jTextArea2.append("Error al leer q15");
+                    setVisibleUntilTo(15);
                 }
                 return false;
             }
         }else{
             if(returns){
                 jTextArea2.append("Error al leer q16");
+                setVisibleUntilTo(16);
             }else{
                 jTextArea2.append("Error al leer q3");
+                setVisibleUntilTo(3);
             }
             
             return false;
@@ -211,9 +718,10 @@ public class Automata extends javax.swing.JFrame {
             }else{
                 if(returns){
                     jTextArea2.append("Error al leer q25");
-                
+                    setVisibleUntilTo(25);
                 }else{
                     jTextArea2.append("Error al leer q11");
+                    setVisibleUntilTo(11);
                 
                 }
                 return false;
@@ -221,9 +729,11 @@ public class Automata extends javax.swing.JFrame {
         }else{
             if(returns){
                 jTextArea2.append("Error al leer q24");
+                setVisibleUntilTo(24);
                 return false;
             }else{
                 jTextArea2.append("Error al leer q10");
+                setVisibleUntilTo(10);
                 return false;
             }
             
@@ -232,19 +742,56 @@ public class Automata extends javax.swing.JFrame {
     
     public boolean checkParameter(String x){
         String parameters[] = x.split(",");
-    
+        
+        if(!symbols[2]){
+            if(returns){
+                jTextArea2.append("Error al leer q17");
+                setVisibleUntilTo(17);
+                return false;
+            }else{
+                jTextArea2.append("Error al leer q3");
+                setVisibleUntilTo(3);
+                return false;
+            }
+        }
+        
         for (String parameter : parameters) {
+            hasParameters = true;
             String temp[] = parameter.split(" ");
-            
+            System.out.println(temp[0].trim());
             if(isDataType(temp[0].trim())){
                 if(!isDataType(temp[1].trim())){
                     System.out.println("Jala");
                 }else{
                     jTextArea2.append("Error al leer q7");
+                    setVisibleUntilTo(7);
                     return false;
                 }
             }else{
-                //jTextArea2.append("Error al leer q4");
+                jTextArea2.append("Error al leer q4");
+                setVisibleUntilTo(4);
+                return false;
+            }
+        }
+        if(!symbols[3]){
+            if(returns){
+                jTextArea2.append("Error al leer q21");
+                setVisibleUntilTo(21);
+                return false;
+            }else{
+                jTextArea2.append("Error al leer q7");
+                setVisibleUntilTo(7);
+                return false;
+            }
+        }
+        if(!symbols[0]){
+             if(returns){
+                jTextArea2.append("Error al leer q22");
+                setVisibleUntilTo(22);
+                return false;
+            }else{
+                jTextArea2.append("Error al leer q8");
+                setVisibleUntilTo(8);
                 return false;
             }
         }
@@ -264,10 +811,11 @@ public class Automata extends javax.swing.JFrame {
             char dotVerify[] = x[2].toCharArray();
             
             if(verifyReturn[0].equals("return")){
-                String xd = verifyReturn[2].replace(';', ' ');
+                String xd = verifyReturn[1].replace(';', ' ');
                 xd = xd.trim();
                 if(isDataType(xd)){
                     jTextArea2.append("Error al leer q29");
+                    setVisibleUntilTo(29);
                     notError = false;
                     return true;
                 }else{
@@ -275,6 +823,7 @@ public class Automata extends javax.swing.JFrame {
                         return true;
                     }else{
                     jTextArea2.append("Error al leer q30");
+                    setVisibleUntilTo(30);
                     notError = false;
                     return false;
                     }
@@ -282,6 +831,7 @@ public class Automata extends javax.swing.JFrame {
             }else{
                 notError = false;
                 jTextArea2.append("Error al leer q27");
+                setVisibleUntilTo(27);
                 return false;
             }
         
@@ -290,8 +840,10 @@ public class Automata extends javax.swing.JFrame {
         }else{
             if(!returns){
                 jTextArea2.append("Error al leer 13");
+                setVisibleUntilTo(13);
             }else{
                 jTextArea2.append("Error al leer q30");
+                setVisibleUntilTo(30);
             }
             notError = false;
             return false;
@@ -318,7 +870,7 @@ public class Automata extends javax.swing.JFrame {
                 bo[1] = true;
                 cont2++;
             }else if(c == '}' && cont2 != 0){
-                bo[0] = false;
+                bo[1] = false;
                 cont++;
             
             }
@@ -334,12 +886,234 @@ public class Automata extends javax.swing.JFrame {
                 bo[3] = true;
                 cont4++;
             }else if(c == ')' && cont4 != 0){
-                bo[0] = false;
+                bo[3] = false;
                 cont++;
             }
         }
         
         return bo;
+    }
+    
+    
+    
+    public void setInvisible(){
+        this.q0Void.setVisible(false);
+        this.q0Return.setVisible(false);
+        this.q1.setVisible(false);
+        this.q2.setVisible(false);
+        this.q3.setVisible(false);
+        this.q4.setVisible(false);
+        this.q5.setVisible(false);
+        this.q6.setVisible(false);
+        this.q7.setVisible(false);
+        this.q8.setVisible(false);
+        this.q9.setVisible(false);
+        this.q10.setVisible(false);
+        this.q11.setVisible(false);
+        this.q12.setVisible(false);
+        this.q13.setVisible(false);
+        this.q14.setVisible(false);
+        
+        this.q15.setVisible(false);
+        this.q16.setVisible(false);
+        this.q17.setVisible(false);
+        this.q18.setVisible(false);
+        this.q19.setVisible(false);
+        this.q20.setVisible(false);
+        this.q21.setVisible(false);
+        this.q22.setVisible(false);
+        this.q23.setVisible(false);
+        this.q24.setVisible(false);
+        this.q25.setVisible(false);
+        this.q26.setVisible(false);
+        this.q27.setVisible(false);
+        this.q28.setVisible(false);
+        this.q29.setVisible(false);
+        this.q30.setVisible(false);
+        this.q31.setVisible(false);
+        this.q32.setVisible(false);
+        this.q33.setVisible(false);
+        
+        
+        this.q0q1.setVisible(false);
+        this.q1q2.setVisible(false);
+        this.q2q3.setVisible(false);
+        this.q3q4.setVisible(false);
+        this.q4q5.setVisible(false);
+        this.q5q6.setVisible(false);
+        this.q6q7.setVisible(false);
+        this.q7q8.setVisible(false);
+        this.q8q9.setVisible(false);
+        this.q9q10.setVisible(false);
+        this.q10q11.setVisible(false);
+        this.q11q12.setVisible(false);
+        this.q12q13.setVisible(false);
+        this.q13q14.setVisible(false);
+        
+        this.q0q15.setVisible(false);
+        this.q15q16.setVisible(false);
+        this.q16q17.setVisible(false);
+        this.q17q18.setVisible(false);
+        this.q18q19.setVisible(false);
+        this.q19q20.setVisible(false);
+        this.q20q21.setVisible(false);
+        this.q21q22.setVisible(false);
+        this.q22q23.setVisible(false);
+        this.q23q24.setVisible(false);
+        this.q24q25.setVisible(false);
+        this.q25q26.setVisible(false);
+        this.q26q27.setVisible(false);
+        this.q27q28.setVisible(false);
+        this.q28q29.setVisible(false);
+        this.q29q30.setVisible(false);
+        this.q30q31.setVisible(false);
+        this.q31q32.setVisible(false);
+        this.q32q33.setVisible(false);
+    }
+    
+    
+    public void setVisibleUntilTo(int x){
+        if(x < 15){
+            if(x >= 0){
+                this.q0Void.setVisible(true);
+                this.q0q1.setVisible(true);
+            }
+            if(x >= 1){
+                this.q1.setVisible(true);
+                this.q1q2.setVisible(true);
+            }
+            if(x >= 2){
+                this.q2.setVisible(true);
+                this.q2q3.setVisible(true);
+            }
+            if(x >= 3){
+                this.q3.setVisible(true);
+                this.q3q4.setVisible(true);
+            }
+            if(x >= 4){
+                this.q4.setVisible(true);
+                this.q4q5.setVisible(true);
+            }
+            if(x >= 5 && hasParameters){
+                this.q5.setVisible(true);
+                this.q5q6.setVisible(true);
+            }
+            if(x >= 6 && hasParameters){
+                this.q6.setVisible(true);
+                this.q6q7.setVisible(true);
+            }
+            if(x >= 7 && hasParameters){
+                this.q7.setVisible(true);
+                this.q7q8.setVisible(true);
+            }
+            if(x >= 8){
+                this.q8.setVisible(true);
+                this.q8q9.setVisible(true);
+            }
+            if(x >= 9){
+                this.q9.setVisible(true);
+                this.q9q10.setVisible(true);
+            }
+            if(x >= 10){
+                this.q10.setVisible(true);
+                this.q10q11.setVisible(true);
+            }
+            if(x >= 11){
+                this.q11.setVisible(true);
+                this.q11q12.setVisible(true);
+            }
+            if(x >= 12){
+                this.q12.setVisible(true);
+                this.q12q13.setVisible(true);
+            }
+            if(x >= 13){
+                this.q13.setVisible(true);
+                this.q13q14.setVisible(true);
+            }
+            if(x == 14){
+                this.q14.setVisible(true);
+            }
+        }else{
+            this.q0Return.setVisible(true);
+            this.q0q15.setVisible(true);
+            if(x >= 15){
+                this.q15.setVisible(true);
+                this.q15q16.setVisible(true);
+            }
+            if(x >= 16){
+                this.q16.setVisible(true);
+                this.q16q17.setVisible(true);
+            }
+            if(x >= 17){
+                this.q17.setVisible(true);
+                this.q17q18.setVisible(true);
+            }
+            if(x >= 18){
+                this.q18.setVisible(true);
+                this.q18q19.setVisible(true);
+            }
+            if(x >= 19 && hasParameters){
+                this.q19.setVisible(true);
+                this.q19q20.setVisible(true);
+            }
+            if(x >= 20 && hasParameters){
+                this.q20.setVisible(true);
+                this.q20q21.setVisible(true);
+            }
+            if(x >= 21 && hasParameters){
+                this.q21.setVisible(true);
+                this.q21q22.setVisible(true);
+            }
+            if(x >= 22){
+                this.q22.setVisible(true);
+                this.q22q23.setVisible(true);
+            }
+            if(x >= 23){
+                this.q23.setVisible(true);
+                this.q23q24.setVisible(true);
+            }
+            if(x >= 24){
+                this.q24.setVisible(true);
+                this.q24q25.setVisible(true);
+            }
+            if(x >= 25){
+                this.q25.setVisible(true);
+                this.q25q26.setVisible(true);
+            }
+            if(x >= 26){
+                this.q26.setVisible(true);
+                this.q26q27.setVisible(true);
+            }
+            if(x >= 27){
+                this.q27.setVisible(true);
+                this.q27q28.setVisible(true);
+            }
+            if(x >= 28){
+                this.q28.setVisible(true);
+                this.q28q29.setVisible(true);
+            }
+            if(x >= 29){
+                this.q29.setVisible(true);
+                this.q29q30.setVisible(true);
+            }
+            if(x >= 30){
+                this.q30.setVisible(true);
+                this.q30q31.setVisible(true);
+            }
+            if(x >= 31){
+                this.q31.setVisible(true);
+                this.q31q32.setVisible(true);
+            }
+            if(x >= 32){
+                this.q32.setVisible(true);
+                this.q32q33.setVisible(true);
+            }
+            if(x == 33){
+                this.q33.setVisible(true);
+            }
+        
+        }
+    
     }
     /**
      * @param args the command line arguments
@@ -377,12 +1151,82 @@ public class Automata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel q0Return;
+    private javax.swing.JLabel q0Void;
+    private javax.swing.JLabel q0q1;
+    private javax.swing.JLabel q0q15;
+    private javax.swing.JLabel q1;
+    private javax.swing.JLabel q10;
+    private javax.swing.JLabel q10q11;
+    private javax.swing.JLabel q11;
+    private javax.swing.JLabel q11q12;
+    private javax.swing.JLabel q12;
+    private javax.swing.JLabel q12q13;
+    private javax.swing.JLabel q13;
+    private javax.swing.JLabel q13q14;
+    private javax.swing.JLabel q14;
+    private javax.swing.JLabel q15;
+    private javax.swing.JLabel q15q16;
+    private javax.swing.JLabel q16;
+    private javax.swing.JLabel q16q17;
+    private javax.swing.JLabel q17;
+    private javax.swing.JLabel q17q18;
+    private javax.swing.JLabel q18;
+    private javax.swing.JLabel q18q19;
+    private javax.swing.JLabel q19;
+    private javax.swing.JLabel q19q20;
+    private javax.swing.JLabel q1q2;
+    private javax.swing.JLabel q2;
+    private javax.swing.JLabel q20;
+    private javax.swing.JLabel q20q21;
+    private javax.swing.JLabel q21;
+    private javax.swing.JLabel q21q22;
+    private javax.swing.JLabel q22;
+    private javax.swing.JLabel q22q23;
+    private javax.swing.JLabel q23;
+    private javax.swing.JLabel q23q24;
+    private javax.swing.JLabel q24;
+    private javax.swing.JLabel q24q25;
+    private javax.swing.JLabel q25;
+    private javax.swing.JLabel q25q26;
+    private javax.swing.JLabel q26;
+    private javax.swing.JLabel q26q27;
+    private javax.swing.JLabel q27;
+    private javax.swing.JLabel q27q28;
+    private javax.swing.JLabel q28;
+    private javax.swing.JLabel q28q29;
+    private javax.swing.JLabel q29;
+    private javax.swing.JLabel q29q30;
+    private javax.swing.JLabel q2q3;
+    private javax.swing.JLabel q3;
+    private javax.swing.JLabel q30;
+    private javax.swing.JLabel q30q31;
+    private javax.swing.JLabel q31;
+    private javax.swing.JLabel q31q32;
+    private javax.swing.JLabel q32;
+    private javax.swing.JLabel q32q33;
+    private javax.swing.JLabel q33;
+    private javax.swing.JLabel q3q4;
+    private javax.swing.JLabel q4;
+    private javax.swing.JLabel q4q5;
+    private javax.swing.JLabel q5;
+    private javax.swing.JLabel q5q6;
+    private javax.swing.JLabel q6;
+    private javax.swing.JLabel q6q7;
+    private javax.swing.JLabel q7;
+    private javax.swing.JLabel q7q8;
+    private javax.swing.JLabel q8;
+    private javax.swing.JLabel q8q9;
+    private javax.swing.JLabel q9;
+    private javax.swing.JLabel q9q10;
     // End of variables declaration//GEN-END:variables
 }
