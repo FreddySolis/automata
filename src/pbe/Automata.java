@@ -629,9 +629,6 @@ public class Automata extends javax.swing.JFrame {
                                     this.jTextArea2.append("Error al leer q32");
                                     setVisibleUntilTo(32);
                                 }
-                            }else{
-                                this.jTextArea2.append("Error al leer q27");
-                                setVisibleUntilTo(27);
                             }
                         }
                     }
@@ -763,14 +760,26 @@ public class Automata extends javax.swing.JFrame {
                 if(!isDataType(temp[1].trim())){
                     System.out.println("Jala");
                 }else{
-                    jTextArea2.append("Error al leer q7");
-                    setVisibleUntilTo(7);
-                    return false;
+                    if(returns){
+                        jTextArea2.append("Error al leer q20");
+                        setVisibleUntilTo(20);
+                        return false;
+                    }else{
+                        jTextArea2.append("Error al leer q6");
+                        setVisibleUntilTo(6);
+                        return false;
+                    }
                 }
             }else{
-                jTextArea2.append("Error al leer q4");
-                setVisibleUntilTo(4);
-                return false;
+                if(returns){
+                    jTextArea2.append("Error al leer q18");
+                    setVisibleUntilTo(18);
+                    return false;
+                }else{
+                    jTextArea2.append("Error al leer q4");
+                    setVisibleUntilTo(4);
+                    return false;
+                }
             }
         }
         if(!symbols[3]){
@@ -817,7 +826,7 @@ public class Automata extends javax.swing.JFrame {
                     jTextArea2.append("Error al leer q29");
                     setVisibleUntilTo(29);
                     notError = false;
-                    return true;
+                    return false;
                 }else{
                     if(dotVerify[dotVerify.length-1] == ';'){
                         return true;
@@ -835,18 +844,15 @@ public class Automata extends javax.swing.JFrame {
                 return false;
             }
         
-        }else if(x.length==3){
+        }else if(x.length==3 && returns){
+            jTextArea2.append("Error al leer q26");
+            setVisibleUntilTo(26);
+            return false;
+        }else if(!(x.length==3 && returns) && x.length == 3 ){
             return false;
         }else{
-            if(!returns){
-                jTextArea2.append("Error al leer 13");
-                setVisibleUntilTo(13);
-            }else{
-                jTextArea2.append("Error al leer q30");
-                setVisibleUntilTo(30);
-            }
-            notError = false;
-            return false;
+         jTextArea2.append("Error desconocido");   
+         return false;
         }
         
     }
